@@ -25,10 +25,7 @@ namespace Bookish.Services
 
             foreach(var dbAuthor in dbAuthors)
             {
-                result.Add(new Author(
-                    dbAuthor.AuthorName,
-                    dbAuthor.AuthorPhotoUrl
-                ));
+                result.Add(new Author(dbAuthor));
             }
 
             return result;

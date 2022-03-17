@@ -1,22 +1,24 @@
+using Bookish.Models.Database;
+
 namespace Bookish.Models
 {
     public class Book
     {
         public string? Isbn { get; set; }
         public string? Title { get; set; }
-        public string Genre { get; set; }
+        public string? Genre { get; set; }
         public List<Author>? Authors { get; set; }
         public int? YearOfPublication { get; set; }
         public string? CoverPhotoUrl { get; set; }
 
-        public Book(string? isbn, string? title, string? genre, List<Author>? authors, int? yearOfPublication, string? coverPhotourl)
+        public Book(BookDbModel bookDbModel)
         {
-            Isbn = isbn;
-            Title = title;
-            Genre = genre;
-            Authors = authors;
-            CoverPhotoUrl = coverPhotourl;
-            YearOfPublication = yearOfPublication;
+            Isbn = bookDbModel.Isbn;
+            Title = bookDbModel.Title;
+            Genre = bookDbModel.Genre;
+            Authors = bookDbModel.Authors?.Select(a => new Author(a)).ToList();
+            CoverPhotoUrl = bookDbModel.CoverPhotoUrl;
+            YearOfPublication = bookDbModel.YearOfPublication;
         }
     }
 }

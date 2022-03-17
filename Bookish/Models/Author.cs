@@ -1,3 +1,4 @@
+using Bookish.Models.Database;
 namespace Bookish.Models
 {
     public class Author
@@ -6,10 +7,12 @@ namespace Bookish.Models
 
         public string? AuthorPhotoUrl { get; set; }
 
-        public Author(string? authorName, string? authorPhotoUrl)
+        public Author() {}
+
+        public Author(AuthorDbModel authorDbModel)
         {
-            AuthorName = authorName;
-            AuthorPhotoUrl = authorPhotoUrl;
+            AuthorName = authorDbModel.AuthorName;
+            AuthorPhotoUrl = authorDbModel.AuthorPhotoUrl;
         }
     }
 }
