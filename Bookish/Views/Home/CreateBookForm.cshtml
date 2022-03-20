@@ -1,0 +1,23 @@
+@model Book
+@{
+    ViewData["Title"] = "Add Book";
+}
+<h1>@ViewData["Title"]</h1>
+<p>Use this page to add a book.</p>
+
+<form asp-controller="Home" asp-action="CreateBook" method="post">
+  <ul>
+  <li><label asp-for="Isbn"> ISBN: <input asp-for="Isbn" /> </label></li>
+
+  <li><label asp-for="Title"> Title: <input asp-for="Title" /> </label></li>
+
+  <li><label asp-for="CoverPhotoUrl"> Cover Photo URL:  <input asp-for="CoverPhotoUrl" /> </label></li>
+
+  <li><label asp-for="Authors"> Authors: <input asp-for="Authors" /> </label></li>
+  </ul>
+ 
+  <input type="submit" />
+
+
+</form>
+

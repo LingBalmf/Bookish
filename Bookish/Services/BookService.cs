@@ -45,7 +45,7 @@ namespace Bookish.Services
                     insertedAuthors.Add(
                         new AuthorDbModel
                         {
-                            AuthorName = author.AuthorName,
+                            AuthorName = author,
                         }
                     );
                 }
