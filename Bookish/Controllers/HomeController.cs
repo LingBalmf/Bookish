@@ -49,6 +49,14 @@ public class HomeController : Controller
         return Created("/Home/BookList", newBook);
     }
 
+    [HttpPost]
+    public IActionResult CreateAuthor([FromForm] CreateAuthorRequest createAuthorRequest)
+    {
+        var newAuthor = _authorService.CreateAuthor(createAuthorRequest);
+
+        return RedirectToAction("AuthorList");
+    }
+
 
     public IActionResult AuthorList()
     { 
@@ -57,6 +65,10 @@ public class HomeController : Controller
     }
 
     public IActionResult CreateBookForm()
+    {
+        return View();
+    }
+    public IActionResult CreateAuthorForm()
     {
         return View();
     }

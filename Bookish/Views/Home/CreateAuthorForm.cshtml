@@ -1,0 +1,20 @@
+@model Author
+@{
+    ViewData["Title"] = "Add Author";
+}
+<h1>@ViewData["Title"]</h1>
+
+    <p>Use this page to add an author.</p>
+
+    <form asp-controller="Home" asp-action="CreateAuthor" method="post">
+        <ul>
+            <li><label asp-for="AuthorName"> Author Name: <input asp-for="AuthorName" /> </label></li>
+
+            <li><label asp-for="AuthorPhotoUrl"> Author Photo Url: <input asp-for="AuthorPhotoUrl" /> </label></li>
+
+        </ul>
+
+        <input type="submit" />
+
+
+    </form>

@@ -6,6 +6,7 @@ namespace Bookish.Repositories
     public interface IAuthorRepo
     {
         public List<AuthorDbModel> GetAllAuthors();
+        public AuthorDbModel CreateAuthor(AuthorDbModel newAuthor);
     }
     
     public class AuthorRepo : IAuthorRepo
@@ -17,6 +18,12 @@ namespace Bookish.Repositories
             return context
                 .Authors
                 .ToList();
+        }
+        public AuthorDbModel CreateAuthor(AuthorDbModel newAuthor)
+        {
+            var insertedAuthorEntry = context.Authors.Add(newAuthor);
+            context.SaveChanges();
+            return insertedAuthorEntry.Entity;
         }
     }
 }
